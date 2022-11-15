@@ -8,39 +8,36 @@ public class SafeOpenerRunner {
         int digit3 = Integer.parseInt(combination.substring(2,3));
         int digit4 = Integer.parseInt(combination.substring(3,4));
         Scanner s = new Scanner(System.in);
-        System.out.println("Try to break into the safe. A digit can not repeat itself in the combination.\nYou have 3 tries to guess each digit");
+        System.out.println("Try to break into the safe.\nThere are 4 digits in the combination.\nYou have 3 tries to guess each digit");
         System.out.println("Guess the first digit to the combination");
         int guessDigit1 = s.nextInt();
         int count = 0;
         safe.guessDigit1(guessDigit1, digit1);
-
-
-        System.out.println("Guess the second digit to the combination");
-        int guessDigit2 = s.nextInt();
-        while (guessDigit2 != digit2)
+        if (safe.digit1Guessed)
         {
-            count = 0;
-            if (guessDigit2 > digit2)
-            {
-                System.out.println("Too high\nTry again");
-                guessDigit2 = s.nextInt();
-            }
-            if (guessDigit2 < digit2)
-            {
-                System.out.println("Too low\nTry again");
-                guessDigit2 = s.nextInt();
-            }
-            if (guessDigit2 == digit2)
-            {
-                System.out.println("Correct");
-            }
-            count++;
-            if (count == 2 && guessDigit1 != digit2)
-            {
-                System.out.println("Failed\nThe digit was " + digit2);
-                return;
-            }
+            System.out.println("\nGuess the second digit to the combination");
+            int guessDigit2 = s.nextInt();
+            safe.guessDigit2(guessDigit2, digit2);
         }
+
+        if (safe.digit2Guessed)
+        {
+            System.out.println("\nGuess the third digit to the combination");
+            int guessDigit3 = s.nextInt();
+            safe.guessDigit3(guessDigit3, digit3);
+        }
+        if (safe.digit3Guessed)
+        {
+            System.out.println("\nGuess the fourth digit to the combination:");
+            int guessDigit4 = s.nextInt();
+            safe.guessDigit3(guessDigit4, digit4);
+        }
+        if (safe.digit4Guessed)
+        {
+            System.out.println(safe.toString());
+        }
+        }
+
     }
-}
+
 
