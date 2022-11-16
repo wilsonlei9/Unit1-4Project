@@ -1,17 +1,28 @@
 import java.util.Scanner;
 public class SafeOpener {
-    private int digit1 = (int) (Math.random() * 10);
-    private int digit2 = (int) (Math.random() * 10);
-    private int digit3 = (int) (Math.random() * 10);
-    private int digit4 = (int) (Math.random() * 10);
+    private int digit1;
+    private int digit2;
+    private int digit3;
+    private int digit4;
+    private int max1;
+    private int max2;
+    private int max3;
+    private int max4;
     boolean digit1Guessed = true;
     boolean digit2Guessed = true;
     boolean digit3Guessed = true;
     boolean digit4Guessed = true;
     Scanner s = new Scanner(System.in);
 
-    public SafeOpener() {
-
+    public SafeOpener(int max1, int max2, int max3, int max4) {
+        this.max1 = max1;
+        this.max2 = max2;
+        this.max3 = max3;
+        this.max4 = max4;
+        digit1 = (int) (Math.random() * max1);
+        digit2 = (int) (Math.random() * max2);
+        digit3 = (int) (Math.random() * max3);
+        digit4 = (int) (Math.random() * max4);
     }
 
     public String combination() {
@@ -24,8 +35,12 @@ public class SafeOpener {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             if (guess > digit1) {
+                if (guess > max1) {
+                    System.out.println("Over the maximum");
+                }
                 System.out.println("Too high\nTry again");
                 guess = s.nextInt();
+
             }
             if (guess < digit1) {
                 System.out.println("Too low\nTry again");
@@ -40,6 +55,8 @@ public class SafeOpener {
                 System.out.println("Failed\nThe digit was " + digit1);
                 digit1Guessed = false;
                 digit2Guessed = false;
+                digit3Guessed = false;
+                digit4Guessed = false;
                 return 0;
             }
 
@@ -52,6 +69,9 @@ public class SafeOpener {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             if (guess > digit2) {
+                if (guess > max2) {
+                    System.out.println("Over the maximum");
+                }
                 System.out.println("Too high\nTry again");
                 guess = s.nextInt();
             }
@@ -67,6 +87,8 @@ public class SafeOpener {
             if (count == 2 && guess != digit2) {
                 System.out.println("Failed\nThe digit was " + digit2);
                 digit2Guessed = false;
+                digit3Guessed = false;
+                digit4Guessed = false;
                 return 0;
             }
         }
@@ -79,6 +101,9 @@ public class SafeOpener {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             if (guess > digit3) {
+                if (guess > max3) {
+                    System.out.println("Over the maximum");
+                }
                 System.out.println("Too high\nTry again");
                 guess = s.nextInt();
             }
@@ -107,6 +132,9 @@ public class SafeOpener {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             if (guess > digit4) {
+                if (guess > max4) {
+                    System.out.println("Over the maximum");
+                }
                 System.out.println("Too high\nTry again");
                 guess = s.nextInt();
             }

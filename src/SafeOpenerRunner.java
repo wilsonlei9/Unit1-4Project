@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class SafeOpenerRunner {
     public static void main(String[] args) {
-        SafeOpener safe = new SafeOpener();
+        SafeOpener safe = new SafeOpener(10,5,7,3);
         String combination = safe.combination();
         int digit1 = Integer.parseInt(combination.substring(0,1));
         int digit2 = Integer.parseInt(combination.substring(1,2));
@@ -35,6 +35,9 @@ public class SafeOpenerRunner {
         if (safe.digit4Guessed)
         {
             System.out.println(safe.toString());
+        }
+        else {
+            System.out.print("Try again next time");
         }
         }
 
