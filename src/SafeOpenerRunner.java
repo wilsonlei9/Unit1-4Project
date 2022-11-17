@@ -1,7 +1,11 @@
 import java.util.Scanner;
 public class SafeOpenerRunner {
     public static void main(String[] args) {
-        SafeOpener safe = new SafeOpener(10,5,7,3);
+        SafeOpener safe = new SafeOpener(10,10,10,10);
+        safe.generateDigit1();
+        safe.generateDigit2();
+        safe.generateDigit3();
+        safe.generateDigit4();
         String combination = safe.combination();
         int digit1 = Integer.parseInt(combination.substring(0,1));
         int digit2 = Integer.parseInt(combination.substring(1,2));
@@ -9,6 +13,7 @@ public class SafeOpenerRunner {
         int digit4 = Integer.parseInt(combination.substring(3,4));
         Scanner s = new Scanner(System.in);
         System.out.println("Try to break into the safe.\nThere are 4 digits in the combination.\nYou have 3 tries to guess each digit");
+        System.out.println("The four parameters in the constructor are the maximum values for each digit");
         System.out.println("Guess the first digit to the combination");
         int guessDigit1 = s.nextInt();
         int count = 0;

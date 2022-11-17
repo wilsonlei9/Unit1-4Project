@@ -12,6 +12,7 @@ public class SafeOpener {
     boolean digit2Guessed = true;
     boolean digit3Guessed = true;
     boolean digit4Guessed = true;
+    private int seconds;
     Scanner s = new Scanner(System.in);
 
     public SafeOpener(int max1, int max2, int max3, int max4) {
@@ -19,9 +20,23 @@ public class SafeOpener {
         this.max2 = max2;
         this.max3 = max3;
         this.max4 = max4;
+    }
+
+    public SafeOpener()
+
+    public void generateDigit1() {
         digit1 = (int) (Math.random() * max1);
+    }
+
+    public void generateDigit2() {
         digit2 = (int) (Math.random() * max2);
+    }
+
+    public void generateDigit3() {
         digit3 = (int) (Math.random() * max3);
+    }
+
+    public void generateDigit4() {
         digit4 = (int) (Math.random() * max4);
     }
 
@@ -155,6 +170,8 @@ public class SafeOpener {
         }
         return 0;
     }
+
+
 
     public String toString()
     {
