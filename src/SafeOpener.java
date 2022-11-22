@@ -12,7 +12,6 @@ public class SafeOpener {
     boolean digit2Guessed = true;
     boolean digit3Guessed = true;
     boolean digit4Guessed = true;
-    private int seconds;
     Scanner s = new Scanner(System.in);
 
     public SafeOpener(int max1, int max2, int max3, int max4) {
@@ -21,8 +20,6 @@ public class SafeOpener {
         this.max3 = max3;
         this.max4 = max4;
     }
-
-    public SafeOpener()
 
     public void generateDigit1() {
         digit1 = (int) (Math.random() * max1);
@@ -65,7 +62,9 @@ public class SafeOpener {
                 System.out.println("Correct");
                 return 0;
             }
+
             count++;
+
             if (count == 2 && guess != digit1) {
                 System.out.println("Failed\nThe digit was " + digit1);
                 digit1Guessed = false;
