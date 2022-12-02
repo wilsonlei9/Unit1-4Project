@@ -12,11 +12,13 @@ public class SafeOpenerRunner {
         int digit3 = Integer.parseInt(combination.substring(2,3));
         int digit4 = Integer.parseInt(combination.substring(3,4));
         Scanner s = new Scanner(System.in);
-        System.out.println("Try to break into the safe.\nThere are 4 digits in the combination.\nYou have 3 tries to guess each digit");
-        System.out.println("The four parameters in the constructor are the maximum values for each digit");
-        System.out.println("Guess the first digit to the combination");
+        System.out.println("Try to break into the safe.\nThere are 4 digits in the combination.");
+        System.out.println("The four parameters in the constructor are the maximum values for each digit.");
+        System.out.println("Put the amount of tries you want inside the parameter for the tries method.");
+        System.out.println("Guess the first digit to the combination.");
         int guessDigit1 = s.nextInt();
         int count = 0;
+        safe.tries(4);
         safe.guessDigit1(guessDigit1, digit1);
         if (safe.digit1Guessed)
         {
